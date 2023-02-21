@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <title>Etch-a-Sketch</title>
     
-    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="style.css">
     <script src="javascript.js" defer></script>
 
     </head>
@@ -16,11 +16,16 @@
                 <div class="drawing-space">
                 </div>
                 <div class="options">
-                    <button id="clear">Clear</button>
-                    <button id="rainbow">Rainbow Mode</button>
-                    <button id="selectbg">Select Background Color</button>
-                    <button id="selectdraw">Select Drawing Color</button>
-                    <!--<input id="grid size"></input>-->
+                    <div class="options-left">
+                    <button id="reset-btn">Reset Grid</button>
+                    <button id="rainbow-btn">Rainbow Mode</button>
+                    </div>
+                    <div class="options-right">
+                        <input type="color" id="draw" name="draw">
+                            <label for="draw">Drawing</label>
+                        <input type="color" id="bg-color" name="bg-color">
+                            <label for="bg-color">Background</label>
+                    </div>
                 </div>
             </div>
 

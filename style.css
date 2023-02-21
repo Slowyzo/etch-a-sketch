@@ -1,0 +1,72 @@
+body {
+    min-height: 100vh;
+    display: flex;
+    flex: 1 1 auto;
+    align-items: top;
+  }
+  
+  h1 {
+    color: white;
+  }
+  
+  #reset-btn {
+    font-weight: bold;
+    border-radius: 5px;
+  }
+  
+  .outer-div {
+    height: 800px;
+    width: 740px;
+    background-color: red;
+    border: 2px solid darkred;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .drawing-space {
+    height: 660px;
+    width: 660px;
+    background-color: darkgrey;
+    border: 2px solid grey;
+    display: grid;
+  }
+  
+  .options {
+    min-width: 660px;
+    margin-top: 10px;
+    border: 2px inset darkred;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .options-left {
+    border: 2px inset darkgreen;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+  }
+  
+  .options-right {
+    border: 2px inset darkgreen;
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+  }
+  
+  .grid-block {
+    border: 1px solid white;
+    background-color: lightgrey;
+    box-sizing: border-box;
+  }
+
+  .grid-block-active {
+    border: 1px solid white;
+    background-color: grey;
+    box-sizing: border-box;
+  }
