@@ -3,6 +3,9 @@ let body = document.querySelector('body');
 let resetbtn = document.querySelector('#reset-btn');
 resetbtn.addEventListener("click", () => resetGrid());
 
+let rainbowbtn = document.querySelector('#rainbow-btn');
+rainbowbtn.addEventListener("click", () => rainbowMode());
+
 let drawSpace = document.querySelector('.drawing-space');
 
 let gridBlock;
@@ -32,6 +35,20 @@ function addGridBlocks(){
 function resetGrid(){
     drawSpace.innerHTML = '';
     addGridBlocks();
+}
+
+function rainbowMode(){
+    drawSpace.innerHTML = '';
+    drawSpace.style.gridTemplateRows = `repeat(${inputSize}, 1fr)`;
+    drawSpace.style.gridTemplateColumns = `repeat(${inputSize}, 1fr)`;
+    for (let i = 0; i < size; i++){
+        let gridBlock = document.createElement("div");
+        gridBlock.classList.add('grid-block-rainbowstart');
+        drawSpace.appendChild(gridBlock);
+        gridBlock.addEventListener("mouseover", () =>
+            gridBlock.style.backgroundColor = `#${
+                (Math.floor(Math.random()*16777215).toString(16))}`)
+    }
 }
 
 

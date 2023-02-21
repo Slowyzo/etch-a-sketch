@@ -9,9 +9,9 @@ body {
     color: white;
   }
   
-  #reset-btn {
+  #reset-btn, #rainbow-btn {
     font-weight: bold;
-    border-radius: 5px;
+    border-radius: 20px;
   }
   
   .outer-div {
@@ -44,10 +44,10 @@ body {
   }
   
   .options-left {
-    border: 2px inset darkgreen;
     display: flex;
     flex-direction: row;
     justify-content: left;
+    gap: 4px;
   }
   
   .options-right {
@@ -68,5 +68,11 @@ body {
   .grid-block-active {
     border: 1px solid white;
     background-color: grey;
+    box-sizing: border-box;
+  }
+
+  .grid-block-rainbowstart {
+    border: 1px solid rgb(58, 57, 57);
+    background-color: black;
     box-sizing: border-box;
   }
