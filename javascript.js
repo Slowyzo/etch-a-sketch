@@ -1,20 +1,37 @@
-let body = document.querySelector('body');
+const body = document.querySelector('body');
 
-let resetbtn = document.querySelector('#reset-btn');
+const resetbtn = document.querySelector('#reset-btn');
 resetbtn.addEventListener("click", () => resetGrid());
 
-let rainbowbtn = document.querySelector('#rainbow-btn');
-rainbowbtn.addEventListener("click", () => rainbowMode());
+const rainbowbtn = document.querySelector('#rainbow-btn');
+rainbowbtn.addEventListener("click", () => {
+    color = null;
+    rainbowMode();
+});
 
-let drawSpace = document.querySelector('.drawing-space');
+const resizebtn = document.querySelector('#resize-btn');
+resizebtn.addEventListener("click", () => {
+    getInput();
+    resetGrid();
+});
+
+const drawSpace = document.querySelector('.drawing-space');
+
+let colorChoice = document.querySelector('#draw-color');
+let color = null;
+colorChoice.addEventListener("change", function(e) {
+    color = e.target.value;
+});
 
 let gridBlock;
+let inputSize;
+let size;
 
 function getInput(){
-    inputSize = prompt('Select grid size (10 - 100):');
-    if (isNaN(inputSize) || inputSize > 100 || inputSize < 10){
+    inputSize = parseInt(prompt('Select grid size (1 - 100):'));
+    if (isNaN(inputSize) || inputSize > 100 || inputSize < 1){
         alert("Please select a number within the range!");
-        getInput()
+        getInput();
     } else {
         return size = (inputSize **2);
     }
@@ -27,8 +44,13 @@ function addGridBlocks(){
         let gridBlock = document.createElement("div");
         gridBlock.classList.add('grid-block');
         drawSpace.appendChild(gridBlock);
-        gridBlock.addEventListener("mouseover", () => 
-            gridBlock.classList.add('grid-block-active'));
+        gridBlock.addEventListener("mouseover", () => {
+            if (color !== null) {
+                gridBlock.style.backgroundColor = color;
+            } else {
+                gridBlock.classList.add('grid-block-active');
+            }
+        });
     }
 }
 
@@ -45,12 +67,16 @@ function rainbowMode(){
         let gridBlock = document.createElement("div");
         gridBlock.classList.add('grid-block-rainbowstart');
         drawSpace.appendChild(gridBlock);
-        gridBlock.addEventListener("mouseover", () =>
-            gridBlock.style.backgroundColor = `#${
-                (Math.floor(Math.random()*16777215).toString(16))}`)
+        gridBlock.addEventListener("mouseover", () => {
+            if (color !== null) {
+                gridBlock.style.backgroundColor = color;
+            } else {
+                gridBlock.style.backgroundColor = `#${
+                    (Math.floor(Math.random()*16777215).toString(16))}`;
+            }
+        });
     }
 }
-
 
 getInput();
 addGridBlocks();
